@@ -29,6 +29,7 @@ class api_cStates(APIView):
         states = c_states.objects.all()
         print('getestados : ', states)
         sz = szc_state(states, many = True)
+        print('get estados : ', sz.data)
         return Response(sz.data)
     
 
