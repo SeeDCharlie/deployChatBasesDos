@@ -29,11 +29,6 @@ class api_cStates(APIView):
         sz = szc_state(states, many = True)
         return Response(sz.data)
     
-    def put(self, request):
-        print('')
-
-    def post(self, request):
-        print('')
 
 
 class api_login(APIView):
