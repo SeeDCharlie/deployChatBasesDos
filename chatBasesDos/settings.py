@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'chatBasesDos.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    """  'default': {
+    """    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'siamco_db',
         'USER': 'admseed',
