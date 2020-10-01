@@ -1,4 +1,4 @@
-from django.shortcuts import HttpResponse, render
+from django.shortcuts import HttpResponse, render, redirect
 from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -57,7 +57,7 @@ class api_login(APIView):
 
 def logout_view(request):
     logout(request) 
-    return JsonResponse({'ok':True})
+    return redirect('admin')
 
 
 
