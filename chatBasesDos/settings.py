@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
+import django_heroku
+import dj_database_url
+from decouple import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'uoavmmi!z2i+twqhh80-$3k5nrvu!jz5)27pl=)kvnkvmkcvf6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,14 +79,15 @@ WSGI_APPLICATION = 'chatBasesDos.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-      'default': {
+    """  'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'chatbasesdos',
-        'USER': 'admuno',
-        'PASSWORD': 'admuno',
+        'NAME': 'siamco_db',
+        'USER': 'admseed',
+        'PASSWORD': 'admseed777',
         'HOST': 'localhost',
         'PORT': '5432',
-    }
+    }"""
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
 
 
@@ -130,4 +133,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = '/static/'
+
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+django_heroku.settings(locals())
