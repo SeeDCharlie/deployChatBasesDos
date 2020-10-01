@@ -25,7 +25,9 @@ class api_cStates(APIView):
                       #IsOwnerOrReadOnly]
 
     def get(self, request):
+        print('getestados : ')
         states = c_states.objects.all()
+        print('getestados : ', states)
         sz = szc_state(states, many = True)
         return Response(sz.data)
     
