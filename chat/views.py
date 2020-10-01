@@ -29,7 +29,7 @@ class api_cStates(APIView):
         states = c_states.objects.all()
         print('getestados : ', states)
         try :
-            sz = szc_state(states, many = True)
+            sz = szc_states(states, many = True)
             print('get estados : ', sz.data)
             return Response(sz.data)
         except Exception as error :
