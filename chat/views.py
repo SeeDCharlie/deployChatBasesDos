@@ -28,9 +28,13 @@ class api_cStates(APIView):
         print('getestados : ')
         states = c_states.objects.all()
         print('getestados : ', states)
-        sz = szc_state(states, many = True)
-        print('get estados : ', sz.data)
-        return Response(sz.data)
+        try :
+            sz = szc_state(states, many = True)
+            print('get estados : ', sz.data)
+            return Response(sz.data)
+        except Exception as error :
+            print('error states : ', error)
+            return Response({'erro' : error})
     
 
 
