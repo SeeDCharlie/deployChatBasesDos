@@ -57,7 +57,7 @@ class api_login(APIView):
 
 def logout_view(request):
     logout(request) 
-    return redirect('admin')
+    return redirect('https://chatbasesdos.herokuapp.com/admin/login/?next=/admin/')
 
 
 
