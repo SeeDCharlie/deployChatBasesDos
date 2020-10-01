@@ -1,1 +1,1 @@
-web: gunicorn ChatBasesDos.wsgi --log-file -
+web: gunicorn chatBasesDos.wsgi --log-file -
